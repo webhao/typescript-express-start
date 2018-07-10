@@ -1,0 +1,15 @@
+version: "3"
+services:
+  zkapi:
+    restart: always
+    build:
+      context: ../
+      dockerfile: ./docker/dist.Dockerfile
+    ports:
+     - "3000:3000"
+    dns: 223.5.5.5
+    environment:
+      NODE_ENV: production
+  redis:
+    restart: always
+    image: redis

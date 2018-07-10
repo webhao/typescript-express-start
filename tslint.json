@@ -1,0 +1,14 @@
+{
+  "extends": ["@gago/tslint-config"],
+  "rules": {
+    // 覆盖默认规则
+    "match-default-export-name": false
+  },
+  "linterOptions": {
+    "exclude": [
+      "src/**/*.spec.ts",
+      "**/test/**.ts",
+      "**/*.d.ts"
+    ]
+  }
+}

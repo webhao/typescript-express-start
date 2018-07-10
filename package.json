@@ -1,0 +1,70 @@
+{
+  "name": "typescript-express-start",
+  "version": "1.0.0",
+  "description": "种客API",
+  "main": "index.js",
+  "scripts": {
+    "precommit": "npm run tslint",
+    "prepush": "npm run test",
+    "start": "npm run serve",
+    "build": "npm run build-ts && npm run tslint",
+    "serve": "node dist/server.js",
+    "watch-node": "nodemon --delay 2 dist/server.js",
+    "watch": "concurrently -k -p \"[{name}]\" -n \"TypeScript,Node\" -c \"cyan.bold,green.bold\" \"npm run watch-ts\" \"npm run watch-node\"",
+    "test": "jest --forceExit --coverage --verbose",
+    "watch-test": "npm run test -- --watchAll",
+    "build-ts": "tsc",
+    "watch-ts": "tsc -w",
+    "tslint": "tslint -p . --fix",
+    "debug": "npm run build && npm run watch-debug",
+    "serve-debug": "nodemon --delay 1 --inspect=0.0.0.0:9229 dist/server.js",
+    "watch-debug": "concurrently -k -p \"[{name}]\" -n \"TypeScript,Node\" -c \"cyan.bold,green.bold\" \"npm run watch-ts\" \"npm run serve-debug\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@git.azure.gagogroup.cn:meilai/zkapi.git"
+  },
+  "author": "齐建兵，孙昊男，黄泰瑚",
+  "contributors": [
+    "齐建兵 <qijianbing@gagogroup.com>",
+    "孙昊男 <sunhaonan@gagogroup.com>",
+    "黄泰瑚 <huangtaihu@gagogroup.com>"
+  ],
+  "engines": {
+    "node": ">=8.9.0"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "compression": "^1.7.2",
+    "errorhandler": "^1.5.0",
+    "express": "^4.16.3",
+    "express-validator": "^5.2.0",
+    "http-proxy-middleware": "^0.18.0",
+    "winston": "^2.4.2"
+  },
+  "devDependencies": {
+    "@gago/tslint-config": "^0.5.0",
+    "@types/body-parser": "^1.17.0",
+    "@types/compression": "^0.0.36",
+    "@types/errorhandler": "^0.0.32",
+    "@types/express": "^4.11.1",
+    "@types/http-proxy-middleware": "^0.17.4",
+    "@types/jest": "^22.2.3",
+    "@types/node": "^8.10.17",
+    "@types/supertest": "^2.0.4",
+    "@types/winston": "^2.3.9",
+    "concurrently": "^3.5.1",
+    "husky": "^0.14.3",
+    "jest": "^22.4.4",
+    "nodemon": "^1.17.4",
+    "supertest": "^3.1.0",
+    "ts-jest": "^22.4.6",
+    "tslint": "^5.10.0",
+    "typescript": "^2.9.2"
+  },
+  "directories": {
+    "doc": "docs",
+    "test": "test"
+  }
+}

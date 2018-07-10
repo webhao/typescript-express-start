@@ -1,0 +1,23 @@
+version: "3"
+services:
+  zkapi:
+    restart: always
+    build:
+      context: ../
+      dockerfile: ./docker/dev.Dockerfile
+    ports:
+     - "3000:3000"
+     - "9229:9229"
+    dns: 223.5.5.5
+    environment:
+      NODE_ENV: development
+    volumes:
+      - ../:/usr/src/app
+    links:
+      - swagger
+  swagger:
+    restart: always
+    image: swaggerapi/swagger-editor
+  redis:
+    restart: always
+    image: redis
